@@ -1,10 +1,3 @@
-/*
-  Course: C++ Level 2 (Course 06)
-  Topic: 2D Arrays
-  Project: 12x12 Multiplication Table
-  Description: Fills a 2D array with multiplication results and prints it formatted.
-*/
-
 #include <iostream>
 #include <cstdio> // Required for printf
 
