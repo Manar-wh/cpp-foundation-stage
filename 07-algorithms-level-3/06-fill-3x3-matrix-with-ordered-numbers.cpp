@@ -1,8 +1,4 @@
 #include <iostream>
-#include <iomanip>
-#include <cstdlib>
-#include <ctime>
-
 using namespace std;
 
 void FillArrayWithOrderNumbers(int Arr[3][3], short Row, short Cols) {
@@ -24,7 +20,7 @@ void PrintMatrix(int Arr[3][3], short Row, short Cols) {
 	{
 		for (int j = 0; j < Cols; j++)
 		{
-			cout << setw(1) << Arr[i][j] << "     ";
+			cout << Arr[i][j] << "\t";
 		}
 		cout << "\n";
 	}
@@ -37,7 +33,7 @@ int main() {
 
 	FillArrayWithOrderNumbers(Arr, 3, 3);
 
-	cout << "\nThe following is a 3x3 matrix:\n\n";
+	cout << "The following is a 3x3 matrix:\n";
 
 	PrintMatrix(Arr, 3, 3);
 }
