@@ -17,7 +17,7 @@ void PrintMatrix(int Matrix[3][3], short Row, short Cols) {
 	}
 }
 
-bool IsScalarMarix(int Matrix[3][3],short Row, short Cols) {
+bool IsScalarMatrix(int Matrix[3][3],short Row, short Cols) {
 
 	int FirstElement = Matrix[0][0];
 
@@ -40,7 +40,7 @@ bool IsScalarMarix(int Matrix[3][3],short Row, short Cols) {
 
 void PrintIsScalarMarix(int Matrix[3][3], short Row, short Cols) {
 
-	if (IsScalarMarix(Matrix, Row, Cols))
+	if (IsScalarMatrix(Matrix, Row, Cols))
 	{
 		cout << "\nYes: Matrix is scalar\n";
 	}
