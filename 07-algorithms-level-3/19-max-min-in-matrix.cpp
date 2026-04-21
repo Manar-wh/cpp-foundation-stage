@@ -69,7 +69,6 @@ int main() {
     srand((unsigned)time(NULL));
 
     int Matrix1[3][3];
-    int Matrix2[3][3];
 
     FillMatrixWithRandomNumber(Matrix1, 3, 3);
     cout << "Matrix1: \n";
