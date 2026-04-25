@@ -3,7 +3,7 @@
 #include <cctype>
 using namespace std;
 
-char ReadString() {
+char ReadChar() {
 	char c;
 	cout << "Please Enter your character: \n";
 	cin >> c;
@@ -18,7 +18,7 @@ char InvertLetterCase(char c) {
 int main() {
 
 	char c;
-	c = ReadString();
+	c = ReadChar();
 
 	cout << "\nChar after invert case: \n";
 
