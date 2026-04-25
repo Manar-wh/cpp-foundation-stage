@@ -2,7 +2,7 @@
 #include <string>
 #include <cctype>
 using namespace std;
-
+ 
 char ReadChar() {
 	char c;
 	cout << "Please Enter your character: \n";
