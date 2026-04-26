@@ -12,7 +12,7 @@ string ReadString() {
 
 char Readchar() {
 	char c;
-	cout << "\nPlease Enter your a charecter: \n";
+	cout << "\nPlease Enter a charecter: \n";
 	cin >> c;
 	return c;
 }
