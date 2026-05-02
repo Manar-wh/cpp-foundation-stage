@@ -39,6 +39,4 @@ int main() {
 
 	cout << "\nArray after join:\n";
 	cout << JoinString(ArrJoin, 4 ," ^ ");
-
-
 }
