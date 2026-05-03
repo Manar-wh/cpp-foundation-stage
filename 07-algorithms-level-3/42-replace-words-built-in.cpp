@@ -1,32 +1,32 @@
 #include <iostream>
 #include <string>
-#include <cctype>
-#include <vector>
+
 using namespace std;
 
-string ReadString() {
-	string s;
-	cout << "Enter your string: \n";
-	getline(cin, s);
-	return s;
-}
 
 string Replacewords(string s, string TheWord, string Replaceto) {
 
-	int pos = 0;
+    int pos = s.find(TheWord);
 
-	while ((pos = s.find(TheWord)) != std::string::npos) {
+    while (pos != std::string::npos) {
 
-		s.replace(pos, TheWord.length(), Replaceto);
-		pos = s.find(TheWord, pos + Replaceto.length());
-	}
+        s.replace(pos, TheWord.length(), Replaceto);
 
-	return s;
+        pos = s.find(TheWord, pos + Replaceto.length());
+    }
+
+    return s;
 }
 
 int main() {
 
-	string s = "Welcome to Saudi, Saudi is a nice place";
-	cout << s << "\n";
-	cout << Replacewords(s, "Saudi", "Saudi Arabia") << "\n";
+    string s = "Welcome to Italy, Italy is a nice place";
+
+    cout << "Original String:\n" << s << "\n\n";
+
+    string result = Replacewords(s, "Italy", "Saudi Arabia");
+
+    cout << "String After Replace:\n" << result << "\n";
+
+    return 0;
 }
