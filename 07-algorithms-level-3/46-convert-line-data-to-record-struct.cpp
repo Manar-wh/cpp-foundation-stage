@@ -60,6 +60,9 @@ void PrintRecordClint(stClintData clint) {
 int main() {
 
 	string s = "A150#//#1234#//#Manar Alwahedi#//#079999#//#5270.000000";
+	cout << "Line Record is:\n";
+	cout << s;
+
 	stClintData clint;
 	clint = SaveDataInStruct(s);
 	PrintRecordClint(clint);
