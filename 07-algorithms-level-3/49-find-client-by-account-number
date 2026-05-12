@@ -1,0 +1,118 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <vector>
+#include <iomanip>
+using namespace std;
+
+const string ClientsFileName = "Clients.txt";
+
+struct stClintData {
+	string AccountNumber;
+	string PinCode;
+	string Name;
+	string phone;
+	double AccountBalance = 0;
+};
+
+vector <string> SplitString(string s, string delim) {
+	int pos = 0;
+	string Word;
+	vector <string> vWords;
+	while ((pos = s.find(delim)) != std::string::npos) {
+
+		Word = s.substr(0, pos);
+
+		if (Word != "")
+		{
+			vWords.push_back(Word);
+		}
+		s.erase(0, pos + delim.length());
+	}
+	if (s != "")
+	{
+		vWords.push_back(s);
+	}
+	return vWords;
+}
+
+stClintData ConvertLinetoRecord(string s, string delim = "#//#") {
+	stClintData Client;
+	vector <string> vWords;
+
+	vWords = SplitString(s, delim);
+
+	Client.AccountNumber = vWords[0];
+	Client.PinCode = vWords[1];
+	Client.Name = vWords[2];
+	Client.phone = vWords[3];
+	Client.AccountBalance = stod(vWords[4]);
+	return Client;
+}
+
+
+vector <stClintData> convertDataFromFile(string FileName) {
+	
+	stClintData Client;
+	vector <stClintData> vClientsData;
+	fstream MyFile;
+	MyFile.open(FileName, ios::in);
+
+	if (MyFile.is_open())
+	{
+		string Line;
+		while (getline(MyFile, Line)) {
+
+			Client = ConvertLinetoRecord(Line);
+			vClientsData.push_back(Client);
+		}
+	}
+	MyFile.close();
+	return vClientsData;
+}
+
+string ClientAccountNumber() {
+
+	string AccountNumber;
+	cout << "\nPlease enter account number: ";
+	cin >> AccountNumber;
+	return AccountNumber;
+}
+
+bool FindClientByAccountNumber(vector <stClintData>& vClientsData, stClintData &Client,string AccountNumber) {
+	for (stClintData &c : vClientsData)
+	{
+		if (AccountNumber == c.AccountNumber)
+		{
+			Client = c;
+			return true;
+		}
+	}
+	return false;
+}
+
+void PrintClientCard(stClintData Client)
+{
+	cout << "\nThe following are the client details:\n";
+	cout << "\nAccout Number: " << Client.AccountNumber;
+	cout << "\nPin Code : " << Client.PinCode;
+	cout << "\nName : " << Client.Name;
+	cout << "\nPhone : " << Client.phone;
+	cout << "\nAccount Balance: " << Client.AccountBalance;
+}
+
+int main() {
+
+	vector <stClintData> vClientsData;
+	stClintData Client;
+
+	string AccountNum = ClientAccountNumber();
+	vClientsData = convertDataFromFile(ClientsFileName);
+
+	if (FindClientByAccountNumber(vClientsData, Client, AccountNum))
+	{
+		PrintClientCard(Client);
+	}
+	else
+		cout << "\nClient Not Found!";
+}
