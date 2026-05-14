@@ -1,0 +1,200 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <vector>
+#include <iomanip>
+using namespace std;
+
+const string ClientsFileName = "Clients.txt";
+
+struct stClintData {
+	string AccountNumber;
+	string PinCode;
+	string Name;
+	string phone;
+	double AccountBalance = 0;
+};
+
+vector <string> SplitString(string s, string delim) {
+
+	int pos = 0;
+	string Word;
+	vector <string> vWords;
+	while ((pos = s.find(delim)) != std::string::npos) {
+
+		Word = s.substr(0, pos);
+
+		if (Word != "")
+		{
+			vWords.push_back(Word);
+		}
+		s.erase(0, pos + delim.length());
+	}
+	if (s != "")
+	{
+		vWords.push_back(s);
+	}
+	return vWords;
+}
+
+stClintData ConvertLinetoRecord(string Line, string delim = "#//#") {
+
+	vector <string> vWords;
+	vWords = SplitString(Line, delim);
+	stClintData Client;
+
+	Client.AccountNumber = vWords[0];
+	Client.PinCode = vWords[1];
+	Client.Name = vWords[2];
+	Client.phone = vWords[3];
+	Client.AccountBalance = stod(vWords[4]);
+	return Client;
+}
+
+vector <stClintData> LoadDataFromFile(string FileName) {
+
+	vector <stClintData> vClientsData;
+	fstream MyFile;
+	MyFile.open(FileName, ios::in);
+
+	if (MyFile.is_open())
+	{
+		string Line;
+		stClintData Client;
+		while (getline(MyFile, Line))
+		{
+			Client = ConvertLinetoRecord(Line);
+			vClientsData.push_back(Client);
+		}
+	}
+	MyFile.close();
+	return vClientsData;
+}
+
+string FindClientByAccountNumber() {
+
+	string AccountNumber = "";
+	cout << "Please enter the AccountNumber: ";
+	cin >> AccountNumber;
+	return AccountNumber;
+}
+
+bool IsGetClient(vector <stClintData>& vClientsData, stClintData& Client , string AccountNumber) {
+		
+	for (stClintData& c : vClientsData) {
+
+		if (AccountNumber == c.AccountNumber)
+		{
+			Client = c;
+			return true;
+		}
+	}
+
+	return false;
+}
+
+
+void PrintClientCard(stClintData& Client) {
+
+	cout << "\nThe following are the client details:\n";
+	cout << "\nAccout Number: " << Client.AccountNumber;
+	cout << "\nPin Code : " << Client.PinCode;
+	cout << "\nName : " << Client.Name;
+	cout << "\nPhone : " << Client.phone;
+	cout << "\nAccount Balance: " << fixed << setprecision(0) << Client.AccountBalance;
+}
+
+string ConvertRecordToOneLine(stClintData& Client, string delim = "#//#") {
+
+	string s = "";
+
+	s += Client.AccountNumber + delim;
+	s += Client.PinCode + delim;
+	s += Client.Name + delim;
+	s += Client.phone + delim;
+	s += to_string(Client.AccountBalance);
+	return s;
+}
+
+void FillFileAfterEdit( vector <stClintData>& vClientsData, string FileName ) {
+
+	string Line = "";
+
+	fstream MyFile;
+	MyFile.open(FileName, ios::out);
+
+	if (MyFile.is_open())
+	{
+		for (stClintData& s : vClientsData)
+		{
+			Line = ConvertRecordToOneLine(s);
+			MyFile << Line << "\n";
+		}
+	}
+	MyFile.close();
+}
+
+stClintData ReadClientInfo( string AccountNumber) {
+
+	stClintData Client;
+
+	Client.AccountNumber = AccountNumber;
+
+	cout << "\nEnter PinCode? ";
+	getline(cin >> ws, Client.PinCode);
+
+	cout << "\nEnter Name? ";
+	getline(cin, Client.Name);
+
+	cout << "\nEnter phone? ";
+	getline(cin, Client.phone);
+
+	cout << "\nEnter Balance account? ";
+	cin >> Client.AccountBalance;
+	return Client;
+ }
+
+
+bool EditInClientByAccountNumber(stClintData &Client, vector <stClintData>& vClientsData, string FileName, string AccountNumber) {
+	char confirmation = 'Y';
+
+	if (IsGetClient(vClientsData, Client, AccountNumber))
+	{
+		PrintClientCard(Client);
+
+		cout << "\n\nAre you sure you want ubdate this client? ";
+		cin >> confirmation;
+
+			if (toupper(confirmation) == 'Y')
+			{
+
+				for (stClintData& s : vClientsData) {
+
+					if (s.AccountNumber == AccountNumber)
+					{
+						s = ReadClientInfo(AccountNumber);
+						break;
+					}
+				}
+
+				FillFileAfterEdit(vClientsData, FileName);
+				cout << "\nClient updated successfully.\n";
+				return true;
+			}
+	}
+	
+	return false;
+}
+
+
+int main() {
+
+	vector <stClintData> vClientsData;
+	stClintData Client;
+
+	vClientsData = LoadDataFromFile(ClientsFileName);
+	
+	string AccountNumber = FindClientByAccountNumber();
+
+	EditInClientByAccountNumber(Client, vClientsData, ClientsFileName, AccountNumber);
+}
