@@ -19,8 +19,8 @@ The goal of this stage is to build a rock-solid foundation in logic, problem-sol
 ### 💻 Phase 2: Intermediate Concepts (Currently Uploading 🛠️)
 *The following courses contain practical exercises and solutions:*
 - [x] **Course 06:** C++ Level 2 
-- [ ] **Course 07:** Algorithms & Problem Solving Level 3 (In Progress)
-- [ ] **Course 08:** Strings & Dates
+- [x] **Course 07:** Algorithms & Problem Solving Level 3 
+- [ ] **Course 08:** Strings & Dates (In Progress)
 - [ ] **Course 09:** Memory Management & Pointers
 - [ ] **Course 10:** Functional Programming & Logic
 - [ ] **Course 11:** OOP Level 1
