@@ -42,14 +42,10 @@ int NumberOfDaysFromBeginning(short Day, short Month, short Year) {
 
 	int TotalDays = 0;
 
-	for (int i = 1; i < Month ; i++)
+	for (int i = 1; i < Month; i++)
 	{
-
-		if (Month != i)
-		{
-			short NumOfDays = NumberOfDaysInMonth(i, Year);
-			TotalDays += NumOfDays;
-		}
+		short NumOfDays = NumberOfDaysInMonth(i, Year);
+		TotalDays += NumOfDays;
 	}
 
 	TotalDays += Day;
