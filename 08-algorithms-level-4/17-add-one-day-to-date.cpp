@@ -57,11 +57,10 @@ bool IsLastMonthInYear(stDate Date) {
 	return (Date.Month == 12);
 }
 
-stDate AddIneDayToDate(stDate Date) {
+stDate AddOneDayToDate(stDate Date) {
 	
 	if (IsLastDayInMonth(Date))
 	{
-
 		if (IsLastMonthInYear(Date))
 		{
 			Date.Day = 1;
@@ -78,14 +77,13 @@ stDate AddIneDayToDate(stDate Date) {
 	{
 		Date.Day++;
 	}
-
 	return Date;
 }
 
 int main() {
 
 	stDate Date1 = ReadFullDate();
-	Date1 = AddIneDayToDate(Date1);
+	Date1 = AddOneDayToDate(Date1);
 	
 	cout << "\nDate after adding one day is: " << Date1.Day << "/" << Date1.Month << "/" << Date1.Year;
 
