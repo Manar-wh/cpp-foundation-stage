@@ -150,8 +150,6 @@ int main() {
 	stDate Date;
 	Date = GetSystemDate();
 
-	system("cls");
-
 	short CurrentDayOrder = DayOfWeekOrder(Date);
 	cout << "Today is: " << FindDayName(CurrentDayOrder) << ", " << Date.Day << "/" << Date.Month << "/" << Date.Year << "\n";
 
