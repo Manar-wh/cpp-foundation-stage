@@ -26,7 +26,7 @@ public:
     }
 
     string FullName() {
-        return  FirstName() + " " + LastName();
+        return  _FirstName + " " + _LastName;
     }
 };
 
