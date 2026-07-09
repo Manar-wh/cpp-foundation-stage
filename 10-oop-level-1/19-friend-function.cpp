@@ -29,7 +29,6 @@ void Display(clsA A) {
 	cout << "The value of Var3 = " << A.Var3 << "\n";
 }
 
-
 int main() {
 
 	clsA A;
