@@ -19,14 +19,14 @@ void ReadClientInfo(clsBankClient& Client) {
 	Client.AccountBalance = clsInputValidate::ReadFloatNumber();
 }
 
-void UbdateClient() {
+void UpdateClient() {
 	string AccountNumber = "";
 	cout << "Please Enter Account Number: ";
 	AccountNumber = clsInputValidate::ReadString();
 
-	while (!(clsBankClient::IsClientExsist(AccountNumber)))
+	while (!(clsBankClient::IsClientExist(AccountNumber)))
 	{
-		cout << "Invalid Acc. Number, Enter Anothe Number: ";
+		cout << "Invalid Acc. Number, Enter Another Number: ";
 		AccountNumber = clsInputValidate::ReadString();
 	}
 
@@ -39,13 +39,14 @@ void UbdateClient() {
 
 	clsBankClient::enSaveResult SaveResult;
 	SaveResult = Client1.Save();
+	
 	switch (SaveResult)
 	{
 	case clsBankClient::svSucceeded:
 		cout << "\nAccount Updated Successfully :-)\n";
 		Client1.Print();
-
 		break;
+		
 	case clsBankClient::svFailedEmptyObject:
 		cout << "\nError account was not saved because it's Empty";
 		break;
@@ -54,5 +55,5 @@ void UbdateClient() {
 
 int main()
 {
-	UbdateClient();
+	UpdateClient();
 }
