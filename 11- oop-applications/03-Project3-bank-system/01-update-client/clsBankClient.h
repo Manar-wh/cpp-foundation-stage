@@ -152,7 +152,7 @@ public:
 		return (_Mode == enMode::EmptyMode);
 	}
 
-	static bool IsClientExsist(string AccountNumber) {
+	static bool IsClientExist(string AccountNumber) {
 		clsBankClient Client = Find(AccountNumber);
 		return (!Client.IsEmpty());
 	}
