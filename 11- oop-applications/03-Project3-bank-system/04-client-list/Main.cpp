@@ -15,6 +15,7 @@ void PrintClientRecordLine(clsBankClient Client) {
 	cout << "| "  << left << setw(10) << Client.AccountBalance ;
 }
 
+
 void ShowClientsList() {
 	vector <clsBankClient> vAllClients;
 	vAllClients = clsBankClient::GetClientsList();
@@ -28,12 +29,19 @@ void ShowClientsList() {
 	cout << "| " << left << setw(10) << " Balance ";
 	cout << "\n-----------------------------------------------------------------------------------------------------------------\n";
 
-	for (clsBankClient& C : vAllClients)
+	if (vAllClients.size() == 0)
 	{
-		PrintClientRecordLine(C);
-		cout << "\n";
+		cout << "\t\t\t\t\tNo Clients Available in the system. ";
 	}
-	cout << "-----------------------------------------------------------------------------------------------------------------\n";
+	else
+	{
+		for (clsBankClient& C : vAllClients)
+		{
+			PrintClientRecordLine(C);
+			cout << "\n";
+		}
+		cout << "-----------------------------------------------------------------------------------------------------------------\n";
+	}
 }
 
 int main()
