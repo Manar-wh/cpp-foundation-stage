@@ -16,7 +16,7 @@ class clsTransactionsScreen : protected clsScreen
 	};
 
 	static short _ReadTransactionsOption() {
-		cout << "\nPlease Choose What You Want To Do? [1 to 4]:  ";
+		cout << setw(37) << left << "" << "Please Choose What You Want To Do? [1 to 4]:  ";
 		short Option = 0;
 		Option = clsInputValidate::ReadShortNumberBetween(1, 4);
 		return Option;
@@ -74,6 +74,8 @@ class clsTransactionsScreen : protected clsScreen
 public:
 
 	static void ShowTransactionsMenuScreen() {
+		system("cls");
+		_DrawScreenHeader("\t Transactions Menu Screen");
 
 		cout << setw(37) << left << "" << "==============================================\n";
 		cout << setw(37) << left << "" << "\t\t Transactions Menu Screen\n";
