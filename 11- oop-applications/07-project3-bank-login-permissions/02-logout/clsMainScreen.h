@@ -113,11 +113,6 @@ class clsMainScreen: protected clsScreen
 	static void _ShowManageUsersScreen() {
 		clsManageUsersScreen::ShowManageUsersMenu();
 	}
-
-	static void _ShowEndScreen() {
-		cout << "\t\t\t--- End Screen Will Be Here Soon ---\n";
-	}
-
 protected:
 
 	static void _GoBackToMainMenu() {
@@ -125,7 +120,6 @@ protected:
 		system("cls");
 		ShowMainMenuScreen();
 	}
-
 
 public:
 	static void ShowMainMenuScreen() {
