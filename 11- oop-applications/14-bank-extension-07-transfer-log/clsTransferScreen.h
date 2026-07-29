@@ -5,7 +5,7 @@
 #include "clsInputValidate.h"
 using namespace std;
 
-class clsTransfer : protected clsScreen
+class clsTransferScreen : protected clsScreen
 {
 	static void _PrintClientCard(clsBankClient Client) {
 		cout << "\nClient Card :";
