@@ -23,8 +23,8 @@ The goal of this stage is to build a rock-solid foundation in logic, problem-sol
 - [x] **Course 08:** Strings & Dates 
 - [x] **Course 09:** Memory Management & Pointers
 - [x] **Course 10:** Functional Programming & Logic
-- [ ] **Course 11:** OOP Level 1 (In Progress)
-- [ ] **Course 12:** Data Structures Level 1
+- [x] **Course 11:** OOP Level 1
+- [ ] **Course 12:** Data Structures Level 1 (In Progress)
 
 ---
 
