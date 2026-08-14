@@ -94,6 +94,7 @@ public:
 		{
 			head = new_node;
 			new_node->Prev = NULL;
+			_Size++;
 			return;
 		}
 
