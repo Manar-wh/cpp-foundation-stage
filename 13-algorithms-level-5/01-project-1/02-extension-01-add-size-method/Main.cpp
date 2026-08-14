@@ -10,7 +10,7 @@ int main()
 	MydblLinkedList.InsertAtBeginning(2);
 	MydblLinkedList.InsertAtBeginning(1);
 
-	cout << "Link List Content: \n";
+	cout << "Linked List Content: \n";
 	MydblLinkedList.PrintList();
 
 	 cout << "\nNumber of the Item in Linked List: " << MydblLinkedList.Size() << "\n";
