@@ -9,7 +9,7 @@ class clsDynamicArray
 	T* _TempArray;
 
 public:
-
+ 
 	T* OriginalArray;
 
 	clsDynamicArray(int Size = 0) {
