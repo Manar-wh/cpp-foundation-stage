@@ -1,0 +1,29 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include "clsQueueLine.h"
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+
+    clsQueueLine PayBillsQue("A0", 10);
+    PayBillsQue.IssueTicket();
+    PayBillsQue.IssueTicket();
+    PayBillsQue.IssueTicket();
+    PayBillsQue.IssueTicket();
+    PayBillsQue.IssueTicket();
+
+    cout << "\nPay Bills Queue Info: \n";
+    PayBillsQue.PrintInfo();
+
+    PayBillsQue.PrintTicketsLineRTL();
+
+    PayBillsQue.PrintAllTickets();
+
+    PayBillsQue.ServeNextClient();
+    PayBillsQue.PrintInfo();
+
+
+    return 0;
+}
