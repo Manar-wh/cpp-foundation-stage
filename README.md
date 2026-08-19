@@ -21,10 +21,11 @@ The goal of this stage is to build a rock-solid foundation in logic, problem-sol
 - [x] **Course 06:** C++ Level 2 
 - [x] **Course 07:** Algorithms & Problem Solving Level 3 
 - [x] **Course 08:** Algorithms & Problem Solving Level 4
-- [x] **Course 09:** Memory Management & Pointers
+- [x] **Course 09:** Foundations Level 2
 - [x] **Course 10:** OOP Level 1
 - [x] **Course 11:** OOP Level 2
-- [ ] **Course 12:** Data Structures Level 1 (In Progress)
+- [x] **Course 12:** Data Structures Level 1
+- [x] **Course 13:** Algorithms & Problem Solving Level 5
 
 ---
 
