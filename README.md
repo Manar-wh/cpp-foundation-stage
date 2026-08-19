@@ -10,13 +10,13 @@ The goal of this stage is to build a rock-solid foundation in logic, problem-sol
 
 ### 🏗️ Phase 1: Fundamentals (Completed ✅)
 *These courses focused on building the basic programming mindset and logic.*
-- [x] **Course 01:** Programming Advices - Introduction
+- [x] **Course 01:** Foundations Level 1
 - [x] **Course 02:** Introduction to Programming
 - [x] **Course 03:** Algorithms & Problem Solving Level 1
 - [x] **Course 04:** C++ Level 1
 - [x] **Course 05:** Algorithms & Problem Solving Level 2
 
-### 💻 Phase 2: Intermediate Concepts (Currently Uploading 🛠️)
+### 💻 Phase 2: Intermediate Concepts (Completed ✅)
 *The following courses contain practical exercises and solutions:*
 - [x] **Course 06:** C++ Level 2 
 - [x] **Course 07:** Algorithms & Problem Solving Level 3 
